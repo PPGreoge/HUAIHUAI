@@ -1,0 +1,30 @@
+// 在迭代块内：
+// 您的解决方案必须使用Console.ReadLine()语句来获取用户的输入。
+
+// 您的解决方案必须确保输入是整数的有效表示。
+
+// 如果整数值不在5到10之间，您的代码必须使用Console.WriteLine()语句来提示用户输入5到10之间的整数值。
+
+// 在退出迭代之前，您的解决方案必须确保整数值在5到10之间。
+
+// 在迭代代码块下方（之后）：您的解决方案必须使用Console.WriteLine（）语句来通知用户他们的输入值已被接受。
+
+// 确保您在Visual Studio Code中打开了一个空的Program.cs文件。
+
+// 例如，当您运行应用程序时，它应该拒绝“二”和“2”等输入值，但它应该接受“7”的输入值。
+bool valueEntry = false;
+int numericValue = 0;
+Console.WriteLine("Please Enter between five and ten number");
+do
+{
+    string entryValue = Console.ReadLine();
+    valueEntry = int.TryParse(entryValue, out numericValue);
+    if (numericValue < 5 || numericValue > 10 || valueEntry == false)
+    {
+        Console.WriteLine("invalid Enter,Enter agian.");
+        valueEntry = false;
+    }
+
+} while (valueEntry == false);
+
+Console.WriteLine("valid Enter");
