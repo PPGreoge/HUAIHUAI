@@ -1,0 +1,49 @@
+// 代码挑战-编写代码来实施游戏规则
+
+// 以下是您需要在代码项目中实施的战斗游戏规则：
+
+// 您必须使用do-while语句或while语句作为外部游戏循环。
+
+// 英雄和怪物从10个生命值开始。
+
+// 所有攻击的值都在1到10之间。
+
+// 英雄先攻击。
+
+// 打印怪物失去的生命值和剩余的生命值。
+
+// 如果怪物的生命值大于0，它可以攻击英雄。
+
+// 打印英雄失去的生命值和剩余的生命值。
+
+// 继续这种攻击序列，直到怪物的生命值或英雄的生命值为零或更少。
+
+// 打印获胜者。
+int heroHealth = 10;
+int monsterHealth = 10;
+Random attack = new();
+bool winner = true;
+while (winner)
+{
+    int attackInfo = attack.Next(1, 11);
+    monsterHealth -= attackInfo;
+    Console.WriteLine($"Monster was damaged and lost {attackInfo} health and now has {monsterHealth} health");
+
+    if (monsterHealth > 0)
+    {
+        attackInfo = attack.Next(1, 11);
+        heroHealth -= attackInfo;
+        Console.WriteLine($"Hero was damaged and lost {attackInfo} health and now has {heroHealth} health");
+    }
+
+    if (heroHealth <= 0)
+    {
+        Console.WriteLine("Monster wins!");
+        winner = false;
+    }
+    else if (monsterHealth <= 0)
+    {
+        Console.WriteLine("Hero wins!");
+        winner = false;
+    }
+}
