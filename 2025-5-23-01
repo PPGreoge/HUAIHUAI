@@ -1,0 +1,31 @@
+// 在迭代块之前：您的解决方案必须使用Console.WriteLine（）语句来提示用户选择三个角色名称之一：管理员、经理或用户。
+
+// 在迭代块内：
+
+// 您的解决方案必须使用Console.ReadLine()语句来获取用户的输入。
+
+// 您的解决方案必须确保输入的值与三个角色选项之一相匹配。
+
+// 您的解决方案应该在输入值上使用Trim()方法来忽略前导和后导空格字符。
+
+// 您的解决方案应该在输入值上使用ToLower（）方法来忽略大小写。
+
+// 如果输入的值与其中一个角色选项不匹配，您的代码必须使用Console.WriteLine()语句来提示用户输入有效的条目。
+
+// 在迭代代码块下方（之后）：您的解决方案必须使用Console.WriteLine（）语句来通知用户其输入值已被接受。
+
+// 例如，当您运行应用程序时，它应该拒绝“管理员”等输入值，但应该接受“管理员”的输入值。
+string roleName;
+string[] roleNames = ["administrator", "manager", "user"];
+Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+do
+{
+    roleName = Console.ReadLine();
+    if (!roleNames.Contains(roleName.ToLower()))
+    {
+        Console.WriteLine($"The role name that you entered, \"{roleName}\" is not valid. Enter your role name (Administrator, Manager, or User)");
+    }
+
+} while (!roleNames.Contains(roleName.ToLower()));
+
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
