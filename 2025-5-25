@@ -1,0 +1,29 @@
+// 您的解决方案必须声明一个名为periodLocation的整数变量，该变量可用于在字符串中保持句号字符的位置。
+// 您的解决方案必须包含一个外部foreach或for循环，该循环可用于处理数组中的每个字符串元素。
+// 您将在循环中处理的字符串变量应该命名为myString。
+// 在外循环中，您的解决方案必须使用String类的IndexOf（）方法来获取myString变量中第一个句号字符的位置。
+// 方法调用应该类似于：myString.IndexOf(".").如果字符串中没有句号字符，将返回-1的值。
+// 您的解决方案必须包含一个内部的do-while或while循环，可用于处理myString变量。
+// 在内部循环中，您的解决方案必须提取并显示（写入控制台）每个被处理的字符串中包含的每个句子。
+// 在内循环中，您的解决方案不得显示句号字符。
+// 在内部循环中，您的解决方案必须使用Remove（）、Substring（）和TrimStart（）方法来处理字符串信息。
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+
+for (int i = 0; i < myStrings.Length; i++)
+{
+    string resultString = myStrings[i];
+    string outputString;
+    int objectIndex = resultString.IndexOf(".");//标记句点
+
+    while (objectIndex != -1)
+    {
+        outputString = resultString.Remove(objectIndex);//讲点号开始的尾巴去除，存储剩下的输出字符串
+        resultString = resultString.Substring(objectIndex + 1);//将输出串删掉，留下下一步的操作字符
+        resultString = resultString.TrimStart();
+        //Console.WriteLine(resultString);
+        objectIndex = resultString.IndexOf(".");
+        Console.WriteLine(outputString);
+    }
+    Console.WriteLine(resultString);
+}
